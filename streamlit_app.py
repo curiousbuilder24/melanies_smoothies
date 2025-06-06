@@ -1,6 +1,7 @@
 # Import python packages
 import streamlit as st
-from snowflake.snowpark.context import get_active_session
+#to connect App to OG_Streamlit_SniS you do not need this inport of active Snowflake session
+#from snowflake.snowpark.context import get_active_session
 #Syntax for Snowpark COLUMN function 
 from snowflake.snowpark.functions import col
 
@@ -15,9 +16,11 @@ st.write(
 name_on_order = st.text_input("Name on Smoothie:")
 st.write("The name on your smoothie will be:", name_on_order)
 
+#connect to the OG_Streamlit_SniS. two lines added below to connect to SniS
+cnx = st.connection("snowflake")
+session = cnx.session()
 
 #Display the Fruit Options List loaded from STAGE in SiS App
-session = get_active_session()
 my_dataframe = session.table("smoothies.public.fruit_options").select (col('FRUIT_Name'))
 #st.dataframe(data=my_dataframe, use_container_width=True)
 
