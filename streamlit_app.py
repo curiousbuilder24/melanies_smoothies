@@ -5,13 +5,6 @@ import streamlit as st
 #Syntax for Snowpark COLUMN function 
 from snowflake.snowpark.functions import col
 
-# New section to display infromation from SMOOTHIEFROOT Nutrition API
-# Import REQUESTS Python Package Library to build REST APIs
-import requests
-smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
-# st.text(smoothiefroot_response.json())
-# putting JSON into a Dataframe
-sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
 
 # Write directly to the app
 #Badge-3-Building Data App for Mel's Diner Customer Intake Form
@@ -69,3 +62,13 @@ time_to_insert = st.button ('Submit Order')
 if time_to_insert:
     session.sql(my_insert_stmt).collect()
     st.success('Your Smoothie is ordered!', icon="✅")
+
+# New section to display infromation from SMOOTHIEFROOT Nutrition API
+# Import REQUESTS Python Package Library to build REST APIs
+import requests
+smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+# st.text(smoothiefroot_response.json())
+# putting JSON into a Dataframe
+sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
+
+
