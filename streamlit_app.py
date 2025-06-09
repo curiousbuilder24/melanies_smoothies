@@ -27,8 +27,15 @@ session = cnx.session()
 
 #Display the Fruit Options List loaded from STAGE in SiS App
 #Add the New SEARCH_ON Column to the Dataframe that feeds the Multiselect
+#my_dataframe = session.table("smoothies.public.fruit_options").select (col('FRUIT_Name') ,col('SEARCH_ON'))
+#st.dataframe(data=my_dataframe, use_container_width=True)
+#st.stop()
+
+#Convert the Snowpark Dataframe into a PANDAS Dataframe so we can use the LOC function
+#Make a Version of my_dataframe, but call it pd_df
 my_dataframe = session.table("smoothies.public.fruit_options").select (col('FRUIT_Name') ,col('SEARCH_ON'))
-st.dataframe(data=my_dataframe, use_container_width=True)
+pd_df=my_dataframe.to_pandad()
+st.dataframe(pd_df)
 st.stop()
 
 #Using Multiselect Widget
