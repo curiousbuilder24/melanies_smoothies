@@ -34,7 +34,7 @@ session = cnx.session()
 #Convert the Snowpark Dataframe into a PANDAS Dataframe so we can use the LOC function
 #Make a Version of my_dataframe, but call it pd_df
 my_dataframe = session.table("smoothies.public.fruit_options").select (col('FRUIT_Name') ,col('SEARCH_ON'))
-pd_df=my_dataframe.to_pandad()
+pd_df = my_dataframe.to_pandad()
 #st.dataframe(pd_df)
 #st.stop()
 
