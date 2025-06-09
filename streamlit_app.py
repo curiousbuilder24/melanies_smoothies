@@ -5,6 +5,12 @@ import streamlit as st
 #Syntax for Snowpark COLUMN function 
 from snowflake.snowpark.functions import col
 
+# Import REQUESTS Python Package Library to build REST APIs
+import requests
+smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+st.text(smoothiefroot_response)
+
+
 # Write directly to the app
 #Badge-3-Building Data App for Mel's Diner Customer Intake Form
 st.title(f":cup_with_straw: Customize Your Smoothie! :cup_with_straw:")
