@@ -1,5 +1,7 @@
 # Import python packages
 import streamlit as st
+# Import REQUESTS Python Package Library to build REST APIs
+import requests
 #to connect App to OG_Streamlit_SniS you do not need this inport of active Snowflake session
 #from snowflake.snowpark.context import get_active_session
 #Syntax for Snowpark COLUMN function 
@@ -43,6 +45,8 @@ if ingredients_list:
 
    for fruit_chosen in ingredients_list:
        ingredients_string += fruit_chosen + ' '
+       smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+       sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
 
    
 #Build a SQL Insert Statement & Test It. Adsed second variable for name on order.
@@ -64,11 +68,9 @@ if time_to_insert:
     st.success('Your Smoothie is ordered!', icon="✅")
 
 # New section to display infromation from SMOOTHIEFROOT Nutrition API
-# Import REQUESTS Python Package Library to build REST APIs
-import requests
-smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+#smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
 # st.text(smoothiefroot_response.json())
 # putting JSON into a Dataframe
-sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
+#sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
 
 
