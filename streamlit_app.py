@@ -5,10 +5,11 @@ import streamlit as st
 #Syntax for Snowpark COLUMN function 
 from snowflake.snowpark.functions import col
 
+# New section to display infromation from SMOOTHIEFROOT Nutrition API
 # Import REQUESTS Python Package Library to build REST APIs
 import requests
 smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
-st.text(smoothiefroot_response)
+st.text(smoothiefroot_response.jason())
 
 
 # Write directly to the app
