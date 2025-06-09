@@ -2,6 +2,8 @@
 import streamlit as st
 # Import REQUESTS Python Package Library to build REST APIs
 import requests
+#Add a new python library called "PANDAS" 
+import pandas as pd
 #to connect App to OG_Streamlit_SniS you do not need this inport of active Snowflake session
 #from snowflake.snowpark.context import get_active_session
 #Syntax for Snowpark COLUMN function 
