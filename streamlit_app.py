@@ -9,7 +9,7 @@ from snowflake.snowpark.functions import col
 # Import REQUESTS Python Package Library to build REST APIs
 import requests
 smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
-st.text(smoothiefroot_response.jason())
+st.text(smoothiefroot_response.json())
 
 
 # Write directly to the app
