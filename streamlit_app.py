@@ -62,7 +62,8 @@ if ingredients_list:
        
        st.subheader(fruit_chosen + ' Nutrition Information')
        smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/"+search_on)
-       sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
+       fv_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
+     
 
    
 #Build a SQL Insert Statement & Test It. Adsed second variable for name on order.
